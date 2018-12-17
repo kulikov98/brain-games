@@ -1,0 +1,13 @@
+{
+    "name": "kulikov98/brain-games",
+    "bin": ["bin/brain-games"],
+    "type": "library",
+    "description": "Simple CLI game",
+    "authors": [
+        {
+            "name": "kulikov98",
+            "email": "kulikov98@gmail.com"
+        }
+    ],
+    "require": {}
+}
