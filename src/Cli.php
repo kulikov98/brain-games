@@ -9,6 +9,3 @@ function run() {
   line("Hello, %s!", $name);
   return;
 }
-
-
-?>
