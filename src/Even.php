@@ -25,7 +25,7 @@ function questions($numbers, $name)
         $answer = prompt("Your answer");
         $trueAnswer = $num % 2 === 0 ? 'yes' : 'no';
 
-        if (($num % 2 === 0 && $answer === 'yes') || ($num % 2 !== 0 && $answer === 'no')) {
+        if ($answer === $trueAnswer) {
             line("Correct!");
         } else {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$trueAnswer}'.");
