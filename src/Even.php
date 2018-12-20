@@ -18,17 +18,16 @@ function run()
     return;
 }
 
-function questions (array $numbers, string $name)
+function questions($numbers, $name)
 {
     foreach ($numbers as $num) {
         line("Question: {$num}");
         $answer = prompt("Your answer");
-        $trueAnswer = $num % 2 === 0 ? 'yes' : 'no'; 
+        $trueAnswer = $num % 2 === 0 ? 'yes' : 'no';
 
         if (($num % 2 === 0 && $answer === 'yes') || ($num % 2 !== 0 && $answer === 'no')) {
             line("Correct!");
-        }
-        else {
+        } else {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$trueAnswer}'.");
             line("Let's try again, {$name}!");
             return;
