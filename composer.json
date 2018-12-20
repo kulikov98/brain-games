@@ -1,6 +1,6 @@
 {
     "name": "kulikov98/brain-games",
-    "bin": ["bin/brain-games"],
+    "bin": ["bin/brain-games", "bin/brain-even"],
     "type": "project",
     "description": "Simple CLI game",
     "keywords": ["game", "cli-game"],
