@@ -20,10 +20,10 @@ function run()
 
 function questions($numbers, $name)
 {
-    foreach ($numbers as $num) {
-        line("Question: {$num}");
+    foreach ($numbers as $number) {
+        line("Question: {$number}");
         $answer = prompt("Your answer");
-        $trueAnswer = $num % 2 === 0 ? 'yes' : 'no';
+        $trueAnswer = isEven($number) ? 'yes' : 'no';
 
         if ($answer === $trueAnswer) {
             line("Correct!");
@@ -34,4 +34,9 @@ function questions($numbers, $name)
         }
     }
     line("Congratulations, {$name}!");
+}
+
+function isEven()
+{
+    return $num % 2 === 0;
 }
