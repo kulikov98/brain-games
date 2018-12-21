@@ -36,7 +36,7 @@ function questions($numbers, $name)
     line("Congratulations, {$name}!");
 }
 
-function isEven()
+function isEven($number)
 {
-    return $num % 2 === 0;
+    return $number % 2 === 0;
 }
