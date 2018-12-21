@@ -11,7 +11,7 @@ function run()
     $name = prompt("May I have your name?");
     line("Hello, {$name}");
     
-    $numbers = [15, 6, 7];
+    $numbers = array_rand(range(0, 100), 3);
     
     questions($numbers, $name);
     
