@@ -13,12 +13,16 @@ function run()
     
     $numbers = array_rand(range(0, 100), 3);
     
-    questions($numbers, $name);
+    if (questions($numbers)) {
+        line("Congratulations, {$name}!");
+    } else {
+        line("Let's try again, {$name}!");
+    }
     
     return;
 }
 
-function questions($numbers, $name)
+function questions($numbers)
 {
     foreach ($numbers as $number) {
         line("Question: {$number}");
@@ -29,11 +33,10 @@ function questions($numbers, $name)
             line("Correct!");
         } else {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$trueAnswer}'.");
-            line("Let's try again, {$name}!");
-            return;
+            return false;
         }
     }
-    line("Congratulations, {$name}!");
+    return true;
 }
 
 function isEven($number)
