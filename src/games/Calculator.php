@@ -1,6 +1,11 @@
 <?php
 namespace BrainGames\Calculator;
 
+function getRules ()
+{
+    return "What is the result of the expression?";
+}
+
 function getQuestion ()
 {       
     $firstOperand = rand(1, 10);

@@ -1,6 +1,11 @@
 <?php
 namespace BrainGames\Even;
 
+function getRules ()
+{
+    return "Answer \"yes\" if number even otherwise answer \"no\".";
+}
+
 function getQuestion ()
 {       
     $number = rand(1, 100);

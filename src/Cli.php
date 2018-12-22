@@ -2,19 +2,14 @@
 namespace BrainGames\Cli;
 
 use function \cli\{line, prompt};
-use function \BrainGames\Gcd\{getQuestion, checkAnswer};
+use function \BrainGames\Gcd\{getRules, getQuestion, checkAnswer};
 
 function run($game)
 {
+    $rules = getRules();
+
     line("Welcome to the Brain Games!");
-    switch ($game) {
-        case 'brain-even':
-            line("Answer \"yes\" if number even otherwise answer \"no\".");
-            break;
-        case 'brain-calc':
-            line("What is the result of the expression?");
-            break;
-    }
+    line($rules);
     
     $name = prompt("May I have your name?");
     line("Hello, {$name}");

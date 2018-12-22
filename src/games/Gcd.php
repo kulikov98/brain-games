@@ -1,6 +1,11 @@
 <?php
 namespace BrainGames\Gcd;
 
+function getRules ()
+{
+    return "Find the greatest common divisor of given numbers.";
+}
+
 function getQuestion ()
 {
     $firstOperand = rand(1, 100);
