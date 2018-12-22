@@ -1,13 +1,13 @@
 <?php
 namespace BrainGames\Calculator;
 
-function getRules ()
+function getRules()
 {
     return "What is the result of the expression?";
 }
 
-function getQuestion ()
-{       
+function getQuestion()
+{
     $firstOperand = rand(1, 10);
     $secondOperand = rand(1, 10);
     $operators = ['+','-','*'];
@@ -20,14 +20,13 @@ function getQuestion ()
     return $question;
 }
 
-function checkAnswer ($question, $answer)
+function checkAnswer($question, $answer)
 {
     $firstOperand = $question['firstOperand'];
     $secondOperand = $question['secondOperand'];
     $operator = $question['operator'];
 
-    switch ($operator)
-    {
+    switch ($operator) {
         case '+':
             $correctAnswer = $firstOperand + $secondOperand;
             break;
@@ -45,4 +44,3 @@ function checkAnswer ($question, $answer)
         return $correctAnswer;
     }
 }
-    

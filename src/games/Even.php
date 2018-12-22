@@ -1,13 +1,13 @@
 <?php
 namespace BrainGames\Even;
 
-function getRules ()
+function getRules()
 {
     return "Answer \"yes\" if number even otherwise answer \"no\".";
 }
 
-function getQuestion ()
-{       
+function getQuestion()
+{
     $number = rand(1, 100);
     $question = [
         'string' => "{$number}",
@@ -16,7 +16,7 @@ function getQuestion ()
     return $question;
 }
 
-function checkAnswer ($question, $answer)
+function checkAnswer($question, $answer)
 {
     $number = $question['number'];
     $correctAnswer = isEven($number) ? 'yes' : 'no';

@@ -1,17 +1,17 @@
 <?php
 namespace BrainGames\Progression;
 
-function getRules ()
+function getRules()
 {
     return "What number is missing in the progression?";
 }
 
-function getQuestion ()
-{   
+function getQuestion()
+{
     $question = [];
     $number = rand(1, 10);
-    $increment = rand(1,10);
-    $hidden = rand(0,9);
+    $increment = rand(1, 10);
+    $hidden = rand(0, 9);
     $answer = '';
 
     for ($i = 0; $i < 10; $i++) {
@@ -31,7 +31,7 @@ function getQuestion ()
     return $question;
 }
 
-function checkAnswer ($question, $answer)
+function checkAnswer($question, $answer)
 {
     $correctAnswer = $question['answer'];
     

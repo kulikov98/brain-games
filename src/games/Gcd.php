@@ -1,12 +1,12 @@
 <?php
 namespace BrainGames\Gcd;
 
-function getRules ()
+function getRules()
 {
     return "Find the greatest common divisor of given numbers.";
 }
 
-function getQuestion ()
+function getQuestion()
 {
     $firstOperand = rand(1, 100);
     $secondOperand = rand(1, 100);
@@ -18,7 +18,7 @@ function getQuestion ()
     return $question;
 }
 
-function checkAnswer ($question, $answer)
+function checkAnswer($question, $answer)
 {
     $firstOperand = $question['firstOperand'];
     $secondOperand = $question['secondOperand'];
