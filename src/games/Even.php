@@ -4,26 +4,9 @@ namespace BrainGames\Even;
 use function \cli\line;
 use function \cli\prompt;
 
-function run()
+function questions ()
 {
-    line("Welcome to the Brain Games!");
-    line("Answer \"yes\" if number even otherwise answer \"no\".");
-    $name = prompt("May I have your name?");
-    line("Hello, {$name}");
-    
     $numbers = array_rand(range(0, 100), 3);
-    
-    if (questions($numbers)) {
-        line("Congratulations, {$name}!");
-    } else {
-        line("Let's try again, {$name}!");
-    }
-    
-    return;
-}
-
-function questions($numbers)
-{
     foreach ($numbers as $number) {
         line("Question: {$number}");
         $answer = prompt("Your answer");
