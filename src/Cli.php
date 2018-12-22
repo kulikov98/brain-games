@@ -1,10 +1,8 @@
 <?php
 namespace BrainGames\Cli;
 
-use function \cli\line;
-use function \cli\prompt;
-use function \BrainGames\Calculator\getQuestion;
-use function \BrainGames\Calculator\checkAnswer;
+use function \cli\{line, prompt};
+use function \BrainGames\Gcd\{getQuestion, checkAnswer};
 
 function run($game)
 {

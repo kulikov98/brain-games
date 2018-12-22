@@ -1,9 +1,6 @@
 <?php
 namespace BrainGames\Calculator;
 
-use function \cli\line;
-use function \cli\prompt;
-
 function getQuestion ()
 {       
     $firstOperand = rand(1, 10);
