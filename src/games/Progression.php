@@ -9,7 +9,7 @@ function getRules ()
 function getQuestion ()
 {   
     $question = [];
-    $start = rand(1, 10);
+    $number = rand(1, 10);
     $increment = rand(1,10);
     $hidden = rand(0,9);
     $answer = '';
@@ -17,11 +17,11 @@ function getQuestion ()
     for ($i = 0; $i < 10; $i++) {
         if ($i === $hidden) {
             $question[] = "..";
-            $answer = $start;
+            $answer = $number;
         } else {
-            $question[] = $start;
+            $question[] = $number;
         }
-        $start += $increment;
+        $number += $increment;
     }
 
     $question = [
