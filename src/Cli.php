@@ -2,7 +2,7 @@
 namespace BrainGames\Cli;
 
 use function \cli\{line, prompt};
-use function \BrainGames\Gcd\{getRules, getQuestion, checkAnswer};
+use function \BrainGames\Progression\{getRules, getQuestion, checkAnswer};
 
 function run($game)
 {
