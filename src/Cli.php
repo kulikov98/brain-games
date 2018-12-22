@@ -3,7 +3,8 @@ namespace BrainGames\Cli;
 
 use function \cli\line;
 use function \cli\prompt;
-use function \BrainGames\Even\questions;
+use function \BrainGames\Even\getQuestion;
+use function \BrainGames\Even\checkAnswer;
 
 function run($game)
 {
@@ -27,4 +28,23 @@ function run($game)
     }
     
     return;
+}
+
+function questions ()
+{
+    for ($i = 0; $i < 3; $i++) {
+        $question = getQuestion();
+        line("Question: {$question['string']}");
+        $answer = prompt("Your answer");
+
+        $result = checkAnswer ($question['value'], $answer);
+
+        if ($result === true) {
+            line("Correct!");
+        } else {
+            line($result);
+            return false;
+        }
+    }
+    return true;
 }

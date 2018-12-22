@@ -4,25 +4,29 @@ namespace BrainGames\Even;
 use function \cli\line;
 use function \cli\prompt;
 
-function questions ()
-{
-    $numbers = array_rand(range(0, 100), 3);
-    foreach ($numbers as $number) {
-        line("Question: {$number}");
-        $answer = prompt("Your answer");
-        $trueAnswer = isEven($number) ? 'yes' : 'no';
-
-        if ($answer === $trueAnswer) {
-            line("Correct!");
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$trueAnswer}'.");
-            return false;
-        }
-    }
-    return true;
-}
-
 function isEven($number)
 {
     return $number % 2 === 0;
+}
+
+function getQuestion ()
+{       
+    $number = rand(1, 100);
+    $question = [
+        'string' => "{$number}",
+        'value' => ['number' => $number]
+    ];
+    return $question;
+}
+
+function checkAnswer ($question, $answer)
+{
+    $number = $question['number'];
+    $correctAnswer = isEven($number) ? 'yes' : 'no';
+
+    if ($answer === $correctAnswer) {
+        return true;
+    } else {
+        return "'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.";
+    }
 }
