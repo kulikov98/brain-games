@@ -3,8 +3,8 @@ namespace BrainGames\Cli;
 
 use function \cli\line;
 use function \cli\prompt;
-use function \BrainGames\Even\getQuestion;
-use function \BrainGames\Even\checkAnswer;
+use function \BrainGames\Calculator\getQuestion;
+use function \BrainGames\Calculator\checkAnswer;
 
 function run($game)
 {
@@ -42,7 +42,7 @@ function questions ()
         if ($result === true) {
             line("Correct!");
         } else {
-            line($result);
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$result}'.");
             return false;
         }
     }

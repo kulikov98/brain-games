@@ -27,6 +27,6 @@ function checkAnswer ($question, $answer)
     if ($answer === $correctAnswer) {
         return true;
     } else {
-        return "'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.";
+        return $correctAnswer;
     }
 }
