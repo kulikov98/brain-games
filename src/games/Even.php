@@ -7,7 +7,7 @@ const GAME_RULE = "Answer \"yes\" if number even otherwise answer \"no\".";
 
 function run()
 {
-    play(GAME_RULE, function() {
+    play(GAME_RULE, function () {
         return getQuestionAndAnswer();
     });
 }

@@ -7,7 +7,7 @@ const GAME_RULE = "Find the greatest common divisor of given numbers.";
 
 function run()
 {
-    play(GAME_RULE, function() {
+    play(GAME_RULE, function () {
         return getQuestionAndAnswer();
     });
 }

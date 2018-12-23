@@ -7,7 +7,7 @@ const GAME_RULE = "Answer \"yes\" if given number is prime. Otherwise answer \"n
 
 function run()
 {
-    play(GAME_RULE, function() {
+    play(GAME_RULE, function () {
         return getQuestionAndAnswer();
     });
 }
@@ -25,15 +25,15 @@ function getQuestionAndAnswer()
     return $questionAndAnswer;
 }
 
-function isprime($number) 
+function isprime($number)
 {
-	if ($number === 1) {
+    if ($number === 1) {
         return false;
     }
-	for ($divider = 2; $divider * $divider <= $number; $divider++) {
-		if ($number % $divider === 0) {
+    for ($divider = 2; $divider * $divider <= $number; $divider++) {
+        if ($number % $divider === 0) {
             return false;
         }
-	}
-	return true;
+    }
+    return true;
 }

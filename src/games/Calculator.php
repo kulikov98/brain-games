@@ -7,7 +7,7 @@ const GAME_RULE = "What is the result of the expression?";
 
 function run()
 {
-    play(GAME_RULE, function() {
+    play(GAME_RULE, function () {
         return getQuestionAndAnswer();
     });
 }

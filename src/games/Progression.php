@@ -8,7 +8,7 @@ const PROGRESSION_LENGTH = 10;
 
 function run()
 {
-    play(GAME_RULE, function() {
+    play(GAME_RULE, function () {
         return getQuestionAndAnswer();
     });
 }
