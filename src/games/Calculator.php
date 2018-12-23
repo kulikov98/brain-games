@@ -1,30 +1,26 @@
 <?php
 namespace BrainGames\Calculator;
 
-function getRules()
+use function BrainGames\Cli\play;
+
+function run()
 {
-    return "What is the result of the expression?";
+    $rounds = 3;
+    $rules = "What is the result of the expression?";
+
+    for ($i = 0; $i < $rounds; $i++) {
+        $questionsAndAnswers[] = getQuestionAndAnswer();
+    }
+
+    play($rules, $questionsAndAnswers);
 }
 
-function getQuestion()
+function getQuestionAndAnswer()
 {
     $firstOperand = rand(1, 10);
     $secondOperand = rand(1, 10);
     $operators = ['+','-','*'];
     $operator = $operators[rand(0, count($operators) - 1)];
-
-    $question = [
-        'string' => "{$firstOperand} {$operator} {$secondOperand}",
-        'value' => ['firstOperand' => $firstOperand, 'operator' => $operator, 'secondOperand' => $secondOperand]
-    ];
-    return $question;
-}
-
-function checkAnswer($question, $answer)
-{
-    $firstOperand = $question['firstOperand'];
-    $secondOperand = $question['secondOperand'];
-    $operator = $question['operator'];
 
     switch ($operator) {
         case '+':
@@ -37,10 +33,11 @@ function checkAnswer($question, $answer)
             $correctAnswer = $firstOperand * $secondOperand;
             break;
     }
+
+    $questionAndAnswer = [
+        'question' => "{$firstOperand} {$operator} {$secondOperand}",
+        'answer' => "{$correctAnswer}"
+    ];
     
-    if ($answer == $correctAnswer) {
-        return true;
-    } else {
-        return $correctAnswer;
-    }
+    return $questionAndAnswer;
 }

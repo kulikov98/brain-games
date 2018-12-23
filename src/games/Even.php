@@ -1,31 +1,31 @@
 <?php
 namespace BrainGames\Even;
 
-function getRules()
+use function BrainGames\Cli\play;
+
+function run()
 {
-    return "Answer \"yes\" if number even otherwise answer \"no\".";
+    $rounds = 3;
+    $rules = "Answer \"yes\" if number even otherwise answer \"no\".";
+
+    for ($i = 0; $i < $rounds; $i++) {
+        $questionsAndAnswers[] = getQuestionAndAnswer();
+    }
+
+    play($rules, $questionsAndAnswers);
 }
 
-function getQuestion()
+function getQuestionAndAnswer()
 {
     $number = rand(1, 100);
-    $question = [
-        'string' => "{$number}",
-        'value' => ['number' => $number]
-    ];
-    return $question;
-}
-
-function checkAnswer($question, $answer)
-{
-    $number = $question['number'];
     $correctAnswer = isEven($number) ? 'yes' : 'no';
 
-    if ($answer === $correctAnswer) {
-        return true;
-    } else {
-        return $correctAnswer;
-    }
+    $questionAndAnswer = [
+        'question' => "{$number}",
+        'answer' => "{$correctAnswer}"
+    ];
+
+    return $questionAndAnswer;
 }
 
 function isEven($number)

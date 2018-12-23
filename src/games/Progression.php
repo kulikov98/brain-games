@@ -1,44 +1,37 @@
 <?php
 namespace BrainGames\Progression;
 
-function getRules()
+use function BrainGames\Cli\play;
+
+function run()
 {
-    return "What number is missing in the progression?";
+    $rounds = 3;
+    $rules = "What number is missing in the progression?";
+
+    for ($i = 0; $i < $rounds; $i++) {
+        $questionsAndAnswers[] = getQuestionAndAnswer();
+    }
+
+    play($rules, $questionsAndAnswers);
 }
 
-function getQuestion()
+function getQuestionAndAnswer()
 {
-    $question = [];
-    $number = rand(1, 10);
+    $start = rand(1, 10);
     $increment = rand(1, 10);
-    $hidden = rand(0, 9);
-    $answer = '';
+    $hiddenElementPosition = rand(0, 9);
+    $progressionLength = 10;
 
-    for ($i = 0; $i < 10; $i++) {
-        if ($i === $hidden) {
-            $question[] = "..";
-            $answer = $number;
-        } else {
-            $question[] = $number;
-        }
-        $number += $increment;
+    for ($i = 1; $i <= $progressionLength; $i++) {
+        $question[] = $start + $increment * $i;
     }
+
+    $correctAnswer = $question[$hiddenElementPosition];
+    $question[$hiddenElementPosition] = '..';
 
     $question = [
-        'string' => implode(' ', $question),
-        'value' => ['answer' => $answer]
+        'question' => implode(' ', $question),
+        'answer' => "{$correctAnswer}"
     ];
     return $question;
-}
-
-function checkAnswer($question, $answer)
-{
-    $correctAnswer = $question['answer'];
-    
-    if ($answer == $correctAnswer) {
-        return true;
-    } else {
-        return $correctAnswer;
-    }
-    return true;
 }
