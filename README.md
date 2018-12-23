@@ -3,3 +3,6 @@
 <a href="https://travis-ci.org/kulikov98/project-lvl1-s396"><img src="https://travis-ci.org/kulikov98/project-lvl1-s396.svg?branch=master"></a>
 <br><br>
 <a href="https://asciinema.org/a/1EZWTlDLR7jJ5fIgMfR528kys" target="_blank"><img src="https://asciinema.org/a/1EZWTlDLR7jJ5fIgMfR528kys.svg" /></a>
+<br>
+<p>Prime</p>
+<a href="https://asciinema.org/a/4Jvyh5s7Ipe1I2NZaffufvraE" target="_blank"><img src="https://asciinema.org/a/4Jvyh5s7Ipe1I2NZaffufvraE.svg" /></a>
