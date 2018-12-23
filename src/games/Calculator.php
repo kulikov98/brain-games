@@ -3,16 +3,13 @@ namespace BrainGames\Calculator;
 
 use function BrainGames\Cli\play;
 
+const GAME_RULE = "What is the result of the expression?";
+
 function run()
 {
-    $rounds = 3;
-    $rules = "What is the result of the expression?";
-
-    for ($i = 0; $i < $rounds; $i++) {
-        $questionsAndAnswers[] = getQuestionAndAnswer();
-    }
-
-    play($rules, $questionsAndAnswers);
+    play(GAME_RULE, function() {
+        return getQuestionAndAnswer();
+    });
 }
 
 function getQuestionAndAnswer()

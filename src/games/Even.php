@@ -3,16 +3,13 @@ namespace BrainGames\Even;
 
 use function BrainGames\Cli\play;
 
+const GAME_RULE = "Answer \"yes\" if number even otherwise answer \"no\".";
+
 function run()
 {
-    $rounds = 3;
-    $rules = "Answer \"yes\" if number even otherwise answer \"no\".";
-
-    for ($i = 0; $i < $rounds; $i++) {
-        $questionsAndAnswers[] = getQuestionAndAnswer();
-    }
-
-    play($rules, $questionsAndAnswers);
+    play(GAME_RULE, function() {
+        return getQuestionAndAnswer();
+    });
 }
 
 function getQuestionAndAnswer()

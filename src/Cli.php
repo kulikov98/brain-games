@@ -4,14 +4,20 @@ namespace BrainGames\Cli;
 use function \cli\line;
 use function \cli\prompt;
 
-function play($rules, $questionsAndAnswers)
+const ROUNDS = 3;
+
+function play($gameRule, $getQuestionAndAnswer)
 {
     line("Welcome to the Brain Games!");
-    line($rules);
+    line($gameRule);
     
     $name = prompt("May I have your name?");
     line("Hello, {$name}");
-    
+
+    for ($i = 0; $i < ROUNDS; $i++) {
+        $questionsAndAnswers[] = $getQuestionAndAnswer();
+    }
+
     if (questions($questionsAndAnswers)) {
         line("Congratulations, {$name}!");
     } else {
@@ -24,13 +30,14 @@ function play($rules, $questionsAndAnswers)
 function questions($questionsAndAnswers)
 {
     foreach ($questionsAndAnswers as $questionAndAnswer) {
-        line("Question: {$questionAndAnswer['question']}");
+        ['question' => $question, 'answer' => $correctAnswer] = $questionAndAnswer;
+        line("Question: {$question}");
         $answer = prompt("Your answer");
 
-        if ($answer === $questionAndAnswer['answer']) {
+        if ($answer === $correctAnswer) {
             line("Correct!");
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$questionAndAnswer['answer']}'.");
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
             return false;
         }
     }

@@ -3,27 +3,24 @@ namespace BrainGames\Progression;
 
 use function BrainGames\Cli\play;
 
+const GAME_RULE = "What number is missing in the progression?";
+const PROGRESSION_LENGTH = 10;
+
 function run()
 {
-    $rounds = 3;
-    $rules = "What number is missing in the progression?";
-
-    for ($i = 0; $i < $rounds; $i++) {
-        $questionsAndAnswers[] = getQuestionAndAnswer();
-    }
-
-    play($rules, $questionsAndAnswers);
+    play(GAME_RULE, function() {
+        return getQuestionAndAnswer();
+    });
 }
 
 function getQuestionAndAnswer()
 {
     $start = rand(1, 10);
     $increment = rand(1, 10);
-    $hiddenElementPosition = rand(0, 9);
-    $progressionLength = 10;
+    $hiddenElementPosition = rand(1, PROGRESSION_LENGTH);
 
-    for ($i = 1; $i <= $progressionLength; $i++) {
-        $question[] = $start + $increment * $i;
+    for ($i = 1; $i <= PROGRESSION_LENGTH; $i++) {
+        $question[$i] = $start + $increment * $i;
     }
 
     $correctAnswer = $question[$hiddenElementPosition];

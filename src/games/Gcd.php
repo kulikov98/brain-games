@@ -3,16 +3,13 @@ namespace BrainGames\Gcd;
 
 use function BrainGames\Cli\play;
 
+const GAME_RULE = "Find the greatest common divisor of given numbers.";
+
 function run()
 {
-    $rounds = 3;
-    $rules = "Find the greatest common divisor of given numbers.";
-
-    for ($i = 0; $i < $rounds; $i++) {
-        $questionsAndAnswers[] = getQuestionAndAnswer();
-    }
-
-    play($rules, $questionsAndAnswers);
+    play(GAME_RULE, function() {
+        return getQuestionAndAnswer();
+    });
 }
 
 function getQuestionAndAnswer()

@@ -3,16 +3,13 @@ namespace BrainGames\Prime;
 
 use function BrainGames\Cli\play;
 
+const GAME_RULE = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
+
 function run()
 {
-    $rounds = 3;
-    $rules = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
-
-    for ($i = 0; $i < $rounds; $i++) {
-        $questionsAndAnswers[] = getQuestionAndAnswer();
-    }
-
-    play($rules, $questionsAndAnswers);
+    play(GAME_RULE, function() {
+        return getQuestionAndAnswer();
+    });
 }
 
 function getQuestionAndAnswer()
@@ -28,7 +25,15 @@ function getQuestionAndAnswer()
     return $questionAndAnswer;
 }
 
-function isPrime($number)
+function isprime($number) 
 {
-    return gmp_prob_prime($number) === 2 ? true : false;
+	if ($number === 1) {
+        return false;
+    }
+	for ($divider = 2; $divider * $divider <= $number; $divider++) {
+		if ($number % $divider === 0) {
+            return false;
+        }
+	}
+	return true;
 }
