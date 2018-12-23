@@ -25,7 +25,7 @@ function getQuestionAndAnswer()
         'answer' => "{$correctAnswer}"
     ];
     
-    return $question;
+    return $questionAndAnswer;
 }
 
 function isPrime($number)
