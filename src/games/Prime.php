@@ -25,9 +25,9 @@ function getQuestionAndAnswer()
     return $questionAndAnswer;
 }
 
-function isprime($number)
+function isPrime($number)
 {
-    if ($number === 1) {
+    if ($number < 2) {
         return false;
     }
     for ($divider = 2; $divider * $divider <= $number; $divider++) {

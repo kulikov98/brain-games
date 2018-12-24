@@ -18,13 +18,13 @@ function play($gameRule, $getQuestionAndAnswer)
         $questionsAndAnswers[] = $getQuestionAndAnswer();
     }
 
-    if (questions($questionsAndAnswers)) {
+    $isWin = questions($questionsAndAnswers);
+
+    if ($isWin) {
         line("Congratulations, {$name}!");
     } else {
         line("Let's try again, {$name}!");
     }
-    
-    return;
 }
 
 function questions($questionsAndAnswers)
